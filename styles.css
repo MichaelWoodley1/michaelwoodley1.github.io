@@ -3,5 +3,15 @@ background: lightgray;
 }
 
 .card-1{
-    background: grey;
+    margin:auto;
+    margin: auto;
+    width: 50%;
+    border: 2px slategray;
+    padding: 10px;
+    text-align: center;
+}
+
+.card-2 img{
+    width: 25%;
+    height: 260px;
 }
