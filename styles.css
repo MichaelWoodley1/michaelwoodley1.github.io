@@ -1,7 +1,16 @@
 html {
 background: lightgray;
 }
+h1{
+    text-align: right;
+}
+h2{
+    text-align: center;
+}
 
+h4{
+    text-align: center;
+}
 .card-1{
     margin:auto;
     width: 50%;
