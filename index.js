@@ -1,39 +1,35 @@
-const clockElement = document.querySelector(".clock");
-const clockObject = new DigitalClock(clockElement);
+/*code for clock */
 
-class DigitalClock {
-  constructor(element) {
-    this.element = element;
+class DigitalClock{
+  constructor(element){
+      this.element = element;
   }
-    start() {
-      this.update();
 
-      setInterval(() => {
-        this.update();
-      }, 500);
-    }
-    update() {
-      const parts = this.getTime();
-      const minuteFormat = parts.minute.toString().padStart(2,"0");
-      const timeFormat = `${parts.hour}:${minuteFormat}`;
-      const amPm = parts.isAm ? "AM" : "PM";
+  start(){
+      setInterval(() =>{
+          this.update();
+      }, 200);
+  }
+  update() {
+      let component = this.getTimeComponents();
+      let minuteFormat = component.minute.toString().padStart(2,"0");
+      let timeFormat = `${component.hour}:${minuteFormat}`;
+      const amPm = component.isAm ? "AM" : "PM";
 
       this.element.querySelector(".clock-time").textContent = timeFormat;
       this.element.querySelector(".clock-ampm").textContent = amPm;
-      
-    }
-
-    getTime() {
-      let now = new Date();
+  }
+  getTimeComponents() {
+      const now = new Date();
 
       return {
-        hour: now.getHours() % 12 || 12,
-        minute: now.getMinutes(),
-        isAm: now.getHours() < 12
+          hour: now.getHours() % 12 || 12,
+          minute: now.getMinutes(),
+          isAm: now.getHours() < 12
       };
-    }
+  }
 }
-
-
+const clockElement = document.querySelector(".clock");
+const clockObject = new DigitalClock(clockElement);
 
 clockObject.start();
